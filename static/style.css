@@ -74,6 +74,7 @@ body > section {
 	cursor: -webkit-grab;
 	cursor: grab;
 	overflow: hidden !important;
+	position: absolute;
 }
 
 .object section {
@@ -83,6 +84,10 @@ body > section {
     margin: 1.5em;
     padding: 1em;
     bottom: 0;
+}
+
+.object.active {
+	z-index: 100;
 }
 
 .object .object-detail{

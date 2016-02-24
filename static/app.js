@@ -11,7 +11,6 @@ var app = (function(){
 		init: function(){
 			var self = this;
 			
-			utils.placeholder = document.getElementById('placeholder');
 			houseListings.init();
 			//stuff happening
 			window.addEventListener('hashchange', utils.processHash);

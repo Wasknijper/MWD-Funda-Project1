@@ -1,12 +1,12 @@
 var utils = (function(){
 
-	// Hash-based routing, get the hash and run the router
 	return {
+		houseCounter: 0,
 		housesContainer: "",
+		currentHouseId : "",
 		currentPage : "",
 		currentPageDetail : "",
-		placeholder : "",
-		processHash: function() {
+		processHash: function() { // Hash-based routing, get the hash and run the router
 			var hash = location.hash || '#';
 			app.oldRoute = app.newRoute;
 			app.newRoute = hash.slice(1);
@@ -30,6 +30,11 @@ var utils = (function(){
 		        str[1] = str[1].replace(/(\d{3})/g, '$1 ');
 		    }
 		    return str.join('.');
+		},
+		moveToArray: function(oldArray, newArray){
+			var value = oldArray[0];
+			newArray.push(value);
+			oldArray.shift();
 		}
 	};
 }());
