@@ -55,13 +55,59 @@ section ol:after, section ul:after {
 
 body > section {
 	position: absolute;
-	padding: 6em 1em; 
 	color: white;
 	height: auto;
 	width: 100%;
-	min-height: 100vh;
+	height: 100%;
 	-webkit-transition: 1s ease-in-out;
-	        transition: 1s ease-in-out;
+	       transition: 1s ease-in-out;
+}
+
+#houses {
+}
+
+.object {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	cursor: -webkit-grab;
+	cursor: grab;
+	overflow: hidden !important;
+}
+
+.object section {
+	width: 30em;
+	background-color: black;
+    position: absolute;
+    margin: 1.5em;
+    padding: 1em;
+    bottom: 0;
+}
+
+.object .object-detail{
+    position: relative;
+    cursor: normal;
+    left: 0;
+    bottom:-100%;
+	width: 100%;
+    height: 100%;
+    background-color: blue;
+	cursor: auto;
+	    -webkit-transition: 1s ease-in-out;
+	       transition: 1s ease-in-out;
+
+}
+
+.object-detail a{
+	width: 100%;
+	height: 2em;
+	background-color: white;
+	display: block;
+}
+
+.object-detail.visible {
+	bottom: 0%;
 }
 
 section h1 {
@@ -74,21 +120,6 @@ h2 {
 
 main section:first-of-type{
 	max-width: 25em;
-}
-
-#pokemon{
-	min-width: 100%;
-	overflow-x: hidden;
-	background-color: #333;
-}
-
-.normal, .fire, .electric,  .ice, .ground {
-	color: black;
-}
-#home li { 
-    margin: 2em;
-    padding: 0em;
-    float: left;
 }
 
 #home h1, #home h2 {
@@ -111,21 +142,6 @@ main section:first-of-type{
 	overflow: hidden;
 	opacity: 0;
 	z-index: -1;
-}
-
-
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-#pokemon > .loader {
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 150px 150px;
-	animation: spin 1s infinite;
-}
-
-@keyframes pop-in {
-
 }
 
 h2 {
