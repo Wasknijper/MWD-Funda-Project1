@@ -18,29 +18,32 @@ var touch = (function(){
 		// Make the Hammer functions specific to the pages
 
 	return {
+		swipe : '',
 		discover: function (swipeLeftFunc, swipeRightFunc) {
-
-			if(swipe){
-				swipe.off("swipeleft");
-				swipe.off("swiperight");
-			}
-
+			var self = this;
+			
 			var swipe = _createEvent(utils.housesContainer, _options);
+
 			swipe.on("swipeleft", function(ev){ 
 				swipeLeftFunc();
-				swipe.off("swipeleft");
-				swipe.off("swiperight");
+				//self.swipe.destroy();
 		  		//utils.currentPage.parentNode.removeChild(utils.currentPage);
 
 			});
 
 			swipe.on("swiperight", function(ev){
 				swipeRightFunc();
-				swipe.off("swipeleft");
-				swipe.off("swiperight");
+				//self.swipe.destroy();
 		  		//utils.currentPage.parentNode.removeChild(utils.currentPage);
 			});
 
+			this.swipe = swipe;
+		},
+		removeListeners: function(){
+			if(this.swipe){
+				this.swipe.off("swipeleft");
+				this.swipe.off("swiperight");
+			}
 		}
 	};
 }());

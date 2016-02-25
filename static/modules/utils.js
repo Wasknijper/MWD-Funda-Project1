@@ -6,6 +6,12 @@ var utils = (function(){
 		currentHouseId : "",
 		currentPage : "",
 		currentPageDetail : "",
+		buttonContainer: "",
+		buttonLove : "",
+		buttonReject: "",
+		lovePage : "",
+		rejectPage : "",
+		settingsPage: "",
 		processHash: function() { // Hash-based routing, get the hash and run the router
 			var hash = location.hash || '#';
 			app.oldRoute = app.newRoute;
@@ -31,10 +37,59 @@ var utils = (function(){
 		    }
 		    return str.join('.');
 		},
-		moveToArray: function(oldArray, newArray){
+		moveToArray: function(oldArray, newArray, direction){
 			var value = oldArray[0];
 			newArray.push(value);
 			oldArray.shift();
+			list.lastList = direction;
+		},
+		arrayToObjectArray :function(array, key){
+			var newArray = [], value;
+
+			function makeObjs(i){
+				var newObj = {};
+				value = array[i];
+				newObj[key] = value;
+				newArray.push(newObj);
+			}
+
+			for(var i = 0, len = array.length; i < len; i++){
+				makeObjs(i);
+			}
+
+			return newArray;
+		},
+		stringReplace : function(string, search, replace){
+    		return string.split(search).join(replace);
+		},
+		replaceAllInArray : function(array, key, search, replace){
+			var obj;
+			var newArray = [];
+			for(var i = 0, len = array.length; i < len; i++){
+				obj = array[i];
+				obj[key] = this.stringReplace(obj[key], search, replace);
+				newArray.push(obj);
+			}
+			return newArray;
+		},
+		saveToLocalstorage : function(){
+			var obj = {};
+			obj.data = houseListings.data;
+			obj.love = list.love;
+			obj.reject = list.reject;
+			obj.houseDetail = houseListings.houseDetail;
+
+			localStorage.fundaApp = JSON.stringify(obj);
+		},
+		getFromLocalstorage : function(){
+			if(localStorage.fundaApp){
+				var obj = JSON.parse(localStorage.fundaApp);
+				console.log(obj);
+				houseListings.data = obj.data;
+				list.love = obj.love;
+				list.reject = obj.reject;
+				houseListings.houseDetail = obj.houseDetail;
+			}
 		}
 	};
 }());

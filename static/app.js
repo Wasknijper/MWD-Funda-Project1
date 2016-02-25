@@ -10,8 +10,24 @@ var app = (function(){
 		listings : '',
 		init: function(){
 			var self = this;
+
+			utils.getFromLocalstorage();
+
+			utils.buttonLove = document.getElementById('love');
+			utils.buttonReject = document.getElementById('reject');
+			utils.buttonContainer = document.getElementById('button_container');
+
+			utils.lovePage = document.getElementById('lovePage');
+			utils.rejectPage = document.getElementById('rejectPage');
+			utils.settingsPage = document.getElementById('settings');
+			
+			utils.housesContainer = document.getElementById('houses');
+			utils.housesContainer.innerHTML = templates.loading.render();
 			
 			houseListings.init();
+
+			window.location = '#discover';
+			
 			//stuff happening
 			window.addEventListener('hashchange', utils.processHash);
 			utils.processHash();
