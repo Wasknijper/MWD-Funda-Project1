@@ -1,0 +1,418 @@
+body {
+	background-color: #83C7E5;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+header{
+	background-color: #F8B000;
+	border-bottom: 3px solid #6EC8E5;
+	position: fixed;
+	width: 100%;
+	z-index: 110;
+	height: 3em;
+}
+
+header a {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    font-size: 1.4em;
+}
+
+header #logo {
+	display: block;
+	float: left;
+	margin: 0.5em;
+}
+
+header img {
+    height: 1.7em;
+}
+
+h1 span {
+	font-size: 0.7em;
+	font-weight: normal;
+}
+
+h1 em{
+	font-weight: bold;
+	font-style: normal;
+}
+
+nav li {
+	padding: 0.5em;
+}
+
+section ol, section ul {
+	padding: 1em;
+}
+
+main section ul {
+	padding-top: 0;
+}
+
+section ol {
+	margin: 0 auto;
+    width: 90%;
+}
+
+section ol:after, section ul:after {
+	display: block;
+	content:"";
+	clear: both;
+}
+
+body > section {
+	position: absolute;
+	color: white;
+	height: auto;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: 1s ease-in-out;
+	       transition: 1s ease-in-out;
+}
+
+#houses {
+	overflow-x: hidden;
+}
+
+.object {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background-size: cover;
+	cursor: -webkit-grab;
+	cursor: grab;
+	overflow: hidden !important;
+	position: absolute;
+    -webkit-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+.object section {
+	width: 100%;
+    background-color: #F8B000;
+    /* position: absolute; */
+    position: relative;
+    padding: 1em;
+    bottom: 0;
+}
+
+
+.object.active {
+	z-index: 100;
+	opacity: 1;
+}
+
+.object .object-detail{
+    position: absolute;
+    left: 0;
+    cursor: default;
+    /* bottom: -85%; */
+    width: 30em;
+    height: 100%;
+    /* cursor: auto; */
+	border: 3px solid #6EC8E5;
+	border-left: 0;
+    margin-top: calc(100vh - 6.75em);
+    -webkit-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+
+}
+
+.object-detail .info{
+	color: black;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: block;
+    bottom: 0;
+    position: relative;
+    z-index: 1;
+    border-right: 3px solid #F8B000;
+    overflow: auto;
+    height: calc(100% - 9.5em);
+}
+
+.object-detail .fotos {
+	margin-top: 1.5em;
+    height: auto;
+    background-color: white;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+}
+
+.fotos img {
+	display: block;
+	margin-bottom: 1em;
+	max-width: 28em;
+	width: 100%;
+	height: 100%;
+}
+
+.object-detail.visible{
+	margin-top: 3em;
+	border-top: 0;
+}
+
+#button_container.invisible{
+	opacity: 0;
+	z-index: 90;
+}
+
+section h1 {
+	margin-bottom: 1em;
+}
+
+h1 {
+	font-size: 1.5em;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+main section:first-of-type{
+	max-width: 25em;
+}
+
+#home h1, #home h2 {
+	text-align: center;
+}
+
+#button_container{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+    z-index: 200;
+  	left: 50%;
+  	transform: translate(-60%);
+    bottom: 8.75em;
+	-webkit-transition: 0.6s ease-in-out;
+	       transition: 0.6s ease-in-out;
+}
+
+#button_container button {
+	position: relative;
+	cursor: pointer;
+	margin-right: 2rem;
+    font-size: 2.5em;
+    border: 0;
+    background-color: white;
+    border: 0.35rem solid #6EC8E5;
+    border-radius: 100em;
+    height: 6rem;
+    width: 6rem;
+	-webkit-transition: 0.4s ease-in-out;
+	       transition: 0.4s ease-in-out;
+	transform-origin: center;
+}
+
+#button_container button:hover{
+	transform: scale(1.2);
+}
+
+#button_container button:focus{
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(255,255,0,0.5);
+}
+
+#love {
+	color: #F8B000;
+	float: right; 
+	font-size: 3em;
+	margin-right: 0;
+}
+
+#reject {
+	color: #6EC8E5;
+}
+
+#settings, #lovePage, #rejectPage {
+	padding: 4.5em 1.5em;
+	overflow: auto;
+	z-index: 100;
+	bottom: 100%;
+	background-color: #F8B000;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+#settings {
+	bottom: initial;
+	height:10em;
+	top:-100%;
+	padding-top: 3.5em;
+}
+
+#settings.active{
+	top: 0;
+}
+
+
+#settings [role="close"]{
+    position: absolute;
+    right: 1em;
+}
+
+#lovePage [role="close"], #rejectPage [role="close"] {
+	text-align: right;
+	margin-bottom: 1em;
+	width: 100%;
+}
+
+#settings article, #lovePage article, #rejectPage article{
+	width: 48%;	
+	margin-bottom: 1em;
+}
+
+#settings span, #lovePage span, #rejectPage span{
+	font-size: 1.1em;
+}
+
+#settings h1, #lovePage h1, #rejectPage h1{
+	margin-bottom: 0;	
+}
+
+#settings img, #lovePage img, #rejectPage img{
+	width: 100%;
+}
+
+#lovePage.active, #rejectPage.active {
+	bottom:0;
+}
+
+#settings input[type="number"]:before{
+	content:'€';
+	display:inline;
+}
+
+.invis{
+	position: fixed;
+	overflow: hidden;
+	opacity: 0;
+	z-index: -1;
+}
+
+.right{
+	transform: translateX(100%);
+}
+
+.left{
+	transform: translateX(-100%);
+}
+
+.left:before, .right:before, .loading{
+	padding: 0;
+	margin: 0;
+	display: block;
+	text-align: center;
+	background-color: white;
+	padding: 0.1em;
+	width: 1.3em;
+	height: 1.3em;
+	font-size: 10em;
+	top: 40%;
+	left: 40%;
+	position: absolute;
+	animation: fadein 0.4s;
+	border-radius: 15%;
+}
+
+.loading{
+	padding: 1em;
+    width: 6.3em;
+    height: 6.3em;
+    line-height: 6.3em;
+    font-size: 2em;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    color: #6EC8E5;
+    transform: translate(-50%, -50%);
+}
+
+.left:before{
+	content:"❌";
+	color: #6EC8E5;
+}
+
+
+.right:before{
+	content: "❤";
+	color: #F8B000;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+h2 {
+	margin-top: 1em;
+}
+
+header h1 {
+    padding: 0.2em 0.5em;
+}
+
+form {
+	font-size: 1.2em;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+}
+
+form h1{
+	font-size: 1em;
+	width: 100%;
+}
+
+form button {
+    padding: 1em;
+    background-color: white;
+    color: #F8B000;
+    font-size: 1.em;
+    font-weight: bold;
+    border: 0;
+    border-radius: 0.3em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+fieldset {
+	border: 0;
+}
+
+fieldset:first-of-type{
+	margin-right: 1em;
+}
+
+table {
+	line-height: 1.4;
+	width:100%;
+}
+
+th {
+	text-align: left
+}
+
+tr:not(:first-of-type) th{
+	display: inline-block;
+	margin-top: 1.5em;
+};
