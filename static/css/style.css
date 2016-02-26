@@ -466,11 +466,11 @@ tr:not(:first-of-type) th{
 };
 
 @media (max-device-width : 667px) { 
-	.icon.icon-info-circle {
+	div.icon.icon-info-circle {
 		opacity: 0;
 	}
 
-	.icon.icon-times-circle {
+	div.icon.icon-times-circle {
 		opacity: 1;
 	}
 }
