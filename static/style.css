@@ -348,7 +348,7 @@ main section:first-of-type{
 }
 
 .left:before{
-	content:"\x274c\xfe0e";
+	content:"\10060\xfe0e";
 	color: #6EC8E5;
 }
 
