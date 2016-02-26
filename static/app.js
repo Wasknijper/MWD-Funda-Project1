@@ -13,13 +13,13 @@ var app = (function(){
 
 			utils.getFromLocalstorage();
 
-			utils.buttonLove = document.getElementById('love');
-			utils.buttonReject = document.getElementById('reject');
+			utils.buttonLove = document.getElementById('loveBtn');
+			utils.buttonReject = document.getElementById('rejectBtn');
 			utils.buttonContainer = document.getElementById('button_container');
 
 			utils.lovePage = document.getElementById('lovePage');
 			utils.rejectPage = document.getElementById('rejectPage');
-			utils.settingsPage = document.getElementById('settings');
+			utils.settingsPage = document.getElementById('settingsPage');
 			
 			utils.housesContainer = document.getElementById('houses');
 			utils.housesContainer.innerHTML = templates.loading.render();

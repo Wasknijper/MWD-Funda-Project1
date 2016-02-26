@@ -1,5 +1,8 @@
 body {
 	background-color: #83C7E5;
+    height: 100%;
+    position: absolute;
+    width: 100%;
 }
 
 * {
@@ -33,21 +36,32 @@ header{
 	width: 100%;
 	z-index: 110;
 	height: 3em;
+	display: flex;
+	line-height: 2;
 }
 
 header a {
-    display: inline-block;
+    /* display: inline-block; */
+    display: block;
     padding: 0em 0.6em;
-    font-size: 1.4em;
-    line-height: 2;
+    font-size: 1.6em;
+    height: 100%;
+    /* line-height: 2; */
+    width: min-content;
+    /* float: right; */
 }
 
 header a[href="#settings"]{
-    font-size: 1.6em;
+    line-height: 1.8;
 }
 
 header .icon-times {
 	font-size: 1.1em;
+    line-height: 1.85;
+}
+
+header a:target{
+	background-color: rgba(0,0,0,0.1);
 }
 
 header #logo {
@@ -290,20 +304,20 @@ main section:first-of-type{
 	box-shadow: 0 0 0 2px rgba(255,255,0,0.5);
 }
 
-#button_container #love {
+#button_container #loveBtn {
     line-height: 2.5em;
 	color: #F8B000;
 	float: right; 
 	margin-right: 0;
 }
 
-#button_container #reject {
+#button_container #rejectBtn {
     line-height: 2.05;
     font-size: 3em;
 	color: #6EC8E5;
 }
 
-#settings, #lovePage, #rejectPage {
+section#settingsPage, #lovePage, #rejectPage {
 	padding: 4.5em 1.5em;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -322,43 +336,44 @@ main section:first-of-type{
 	        justify-content: space-around;
 }
 
-#settings {
+section#settingsPage {
 	bottom: initial;
 	height:10em;
 	top:-100%;
 	padding-top: 3.5em;
 }
 
-#settings.active{
+section#settingsPage.active{
 	top: 0;
 }
 
 
-#settings [role="close"]{
+#settingsPage [role="close"]{
     position: absolute;
+    font-size: 2em;
     right: 1em;
 }
 
 #lovePage [role="close"], #rejectPage [role="close"] {
 	text-align: right;
-	margin-bottom: 1em;
+    font-size: 2em;
 	width: 100%;
 }
 
-#settings article, #lovePage article, #rejectPage article{
+#settingsPage article, #lovePage article, #rejectPage article{
 	width: 48%;	
 	margin-bottom: 1em;
 }
 
-#settings span, #lovePage span, #rejectPage span{
+#settingsPage span, #lovePage span, #rejectPage span{
 	font-size: 1.1em;
 }
 
-#settings h1, #lovePage h1, #rejectPage h1{
+#settingsPage h1, #lovePage h1, #rejectPage h1{
 	margin-bottom: 0;	
 }
 
-#settings img, #lovePage img, #rejectPage img{
+#settingsPage img, #lovePage img, #rejectPage img{
 	width: 100%;
 }
 
@@ -392,7 +407,6 @@ main section:first-of-type{
 }
 
 .left:before, .right:before, .loading{
-	font-family: icon-font;
 	line-height: 1.35;
 	padding: 0;
 	margin: 0;
@@ -413,6 +427,10 @@ main section:first-of-type{
 	        animation: fadein 0.4s;
 	border-radius: 15%;
 	overflow: hidden;
+}
+
+.left:before, .right:before{
+	font-family: icon-font;
 }
 
 .loading{
@@ -512,16 +530,52 @@ th {
 tr:not(:first-of-type) th{
 	display: inline-block;
 	margin-top: 1.5em;
-};
+}
 
-@media (max-device-width:42em){ 
-	.icon-info-cirlce:before {
-		opacity: 0;
-		filter: alpha(opacity=0);
+
+@media (max-width: 42em) {
+	#button_container{
+		display: flex;
 	}
 
-	.icon-times-circle:before {
-		opacity: 1;
-		filter: alpha(opacity=100);
+	#button_container button{
+	    position: relative;
+	    cursor: pointer;
+	    margin-right: 2rem;
+	    font-size: 1.7em;
+	    border: 0;
+	    background-color: white;
+	    border: 0.35rem solid #6EC8E5;
+	    border-radius: 100em;
+	    height: 4rem;
+	    width: 4rem;
+	    -webkit-transition: 0.4s ease-in-out;
+	    transition: 0.4s ease-in-out;
+	    -webkit-transform-origin: center;
+	    -ms-transform-origin: center;
+	    transform-origin: center;
+	}
+
+	#button_container #rejectBtn {
+		font-size: 2em;
+	}
+
+	#lovePage article, #rejectPage article{
+		width: 100%;
+		font-size: 0.8em;
+	}
+
+	#settings {
+		height: auto;
+    	padding-bottom: 1em;
+	}
+
+	form button{
+		margin-top: 1em;
+	}
+
+	.object-detail div.icon-info-circle {
+		opacity: 0;
+		filter: alpha(opacity=0);
 	}
 }
