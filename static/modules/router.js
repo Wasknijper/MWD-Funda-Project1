@@ -14,6 +14,7 @@ var router = (function(){
 			
 			utils.lovePage.classList.remove('active');
 			utils.rejectPage.classList.remove('active');
+			utils.settingsPage.classList.remove('active');
 	  		utils.buttonContainer.classList.remove('invisible');
 			utils.saveToLocalstorage();
 			//only add the id to utils if data it exists

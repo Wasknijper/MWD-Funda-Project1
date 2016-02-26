@@ -24,6 +24,7 @@ var app = (function(){
 			utils.housesContainer = document.getElementById('houses');
 			utils.housesContainer.innerHTML = templates.loading.render();
 			
+			houseListings.getFormValues();
 			houseListings.init();
 
 			window.location = '#discover';

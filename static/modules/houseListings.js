@@ -34,14 +34,23 @@ var houseListings = (function(){
 		currentPage : '/p1',
 		nextPage : '',
 		query : '',
+		minPrice : '',
+		maxPrice : '',
+		price : '',
+		restart: false,
 		initDone : false,
 		init : function(){
 			var self = this;
-
+			if(this.minPrice !== '' || this.maxPrice !== ''){
+				this.price = this.minPrice + '-' + this.maxPrice;
+			}
 			if(!localStorage.fundaApp){
+				console.log('restart');
+				this.restart = false;
 				_getCurrentStreet(function(place, addres){
 					var listings;
-					self.query = '?type=koop&zo=/'+ place + '/' + addres + '/+15km';
+					self.query = '?type=koop&zo=/'+ place + '/' + addres + '/+15km/' + houseListings.price;
+					console.log(self.query);
 					var req = utils.request(app.fundaUrl, self.query);
 					req.then(
 						function(d){
@@ -51,6 +60,7 @@ var houseListings = (function(){
 							self.data = d.Objects;
 							console.log(self.data);
 							var firstId = self.data[0].Id;
+							utils.housesContainer.innerHTML = templates.loading.render();
 							self.show(self.data);
 						}
 					);
@@ -95,6 +105,7 @@ var houseListings = (function(){
 		 getNextPage : function(){
 		 	var self = this;
 		 	var req = utils.request(app.fundaUrl, this.query + this.nextPage);
+		 	this.restart = true;
 		 	console.log(app.fundaUrl + this.query + this.nextPage);
 		 	req.then(
 		 		function(d){
@@ -130,6 +141,54 @@ var houseListings = (function(){
 					}
 				}
 			);
+		},
+		getFormValues : function(){
+			var self = this;
+      		var form = document.getElementById('prijs');
+      		var fieldMin = document.getElementsByName('minPrice')[0];
+      		var fieldMax = document.getElementsByName('maxPrice')[0];
+      		var fieldValueMin;
+      		var fieldVlaueMax;
+      
+			form.onsubmit = function(e){
+				e.preventDefault();
+				var searchResults , newQuery;
+
+				fieldValueMin = fieldMin.value.toLowerCase();
+				fieldValueMax = fieldMax.value.toLowerCase();
+
+				if(!fieldValueMin){
+					fieldValueMin = '';
+				}
+
+				if(!fieldValueMax){
+					fieldValueMax = '';
+				}
+
+				self.minPrice = fieldValueMin;
+				self.maxPrice = fieldValueMax;
+
+				self.price = self.minPrice + '-' + self.maxPrice;
+
+				//we clear the data so new houses are loaded
+				self.data = '';
+
+				newQuery = self.query + self.price;
+				console.log(app.fundaUrl, newQuery);
+				var req = utils.request(app.fundaUrl, newQuery);
+				req.then(
+					function(d){
+						self.currentPage = '/p1'
+						self.nextPage = '';
+						self.data = d.Objects;
+						console.log(self.data);
+						var firstId = self.data[0].Id;
+						self.show(self.data);
+					}
+				);
+
+				return false;
+			};
 		}
 	}; 
 }());

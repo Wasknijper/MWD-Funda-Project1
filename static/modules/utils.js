@@ -75,6 +75,11 @@ var utils = (function(){
 		saveToLocalstorage : function(){
 			var obj = {};
 			obj.data = houseListings.data;
+			obj.query = houseListings.query;
+			obj.currentPage = houseListings.currentPage,
+			obj.nextPage = houseListings.nextPage,
+			obj.minPrice = houseListings.minPrice;
+			obj.maxPrice = houseListings.maxPrice;
 			obj.love = list.love;
 			obj.reject = list.reject;
 			obj.houseDetail = houseListings.houseDetail;
@@ -86,6 +91,11 @@ var utils = (function(){
 				var obj = JSON.parse(localStorage.fundaApp);
 				console.log(obj);
 				houseListings.data = obj.data;
+				houseListings.query = obj.query;
+				houseListings.nextPage = obj.nextPage;
+				houseListings.currentPage = obj.currentPage;
+				houseListings.minPrice = obj.minPrice;
+				houseListings.maxPrice = obj.maxPrice;
 				list.love = obj.love;
 				list.reject = obj.reject;
 				houseListings.houseDetail = obj.houseDetail;

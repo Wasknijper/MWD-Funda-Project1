@@ -257,13 +257,20 @@ main section:first-of-type{
 	bottom: initial;
 	height:10em;
 	top:-100%;
+	padding-top: 3.5em;
 }
 
 #settings.active{
 	top: 0;
 }
 
-#settings [role="close"], #lovePage [role="close"], #rejectPage [role="close"] {
+
+#settings [role="close"]{
+    position: absolute;
+    right: 1em;
+}
+
+#lovePage [role="close"], #rejectPage [role="close"] {
 	text-align: right;
 	margin-bottom: 1em;
 	width: 100%;
@@ -290,6 +297,11 @@ main section:first-of-type{
 	bottom:0;
 }
 
+#settings input[type="number"]:before{
+	content:'€';
+	display:inline;
+}
+
 .invis{
 	position: fixed;
 	overflow: hidden;
@@ -305,7 +317,7 @@ main section:first-of-type{
 	transform: translateX(-100%);
 }
 
-.left:before, .right:before{
+.left:before, .right:before, .loading{
 	padding: 0;
 	margin: 0;
 	display: block;
@@ -320,6 +332,19 @@ main section:first-of-type{
 	position: absolute;
 	animation: fadein 0.4s;
 	border-radius: 15%;
+}
+
+.loading{
+	padding: 1em;
+    width: 6.3em;
+    height: 6.3em;
+    line-height: 6.3em;
+    font-size: 2em;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    color: #6EC8E5;
+    transform: translate(-50%, -50%);
 }
 
 .left:before{
@@ -347,15 +372,35 @@ header h1 {
 }
 
 form {
-	text-align: center;
+	font-size: 1.2em;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
 }
 
-form > * {
-	font-size: 1.5em;
+form h1{
+	font-size: 1em;
+	width: 100%;
 }
 
-form input {
-	width: 50%;
+form button {
+    padding: 1em;
+    background-color: white;
+    color: #F8B000;
+    font-size: 1.em;
+    font-weight: bold;
+    border: 0;
+    border-radius: 0.3em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+fieldset {
+	border: 0;
+}
+
+fieldset:first-of-type{
+	margin-right: 1em;
 }
 
 table {
