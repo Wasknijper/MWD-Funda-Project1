@@ -465,7 +465,7 @@ tr:not(:first-of-type) th{
 	margin-top: 1.5em;
 };
 
-@media (max-device-width : 667px) { 
+@media (max-width : 42em) { 
 	div.icon.icon-info-circle {
 		opacity: 0;
 	}
