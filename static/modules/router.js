@@ -1,5 +1,6 @@
 var router = (function(){
 
+	var _icon;
 	var _firstLaunch = true;
 	var _buttonInit = false;
 	//make a router
@@ -12,6 +13,9 @@ var router = (function(){
   		document.title = 'Home';
   		if(_firstLaunch === false){
 			
+			_icon = utils.currentPageDetail.childNodes[0].querySelector('.icon');
+			_icon.classList.remove('icon-times-circle');
+			_icon.classList.add('icon-info-circle');
 			utils.lovePage.classList.remove('active');
 			utils.rejectPage.classList.remove('active');
 			utils.settingsPage.classList.remove('active');
@@ -84,6 +88,8 @@ var router = (function(){
 	});
 
 	routes.add('detail/:name', function (route) {
+		_icon.classList.remove('icon-info-circle');
+		_icon.classList.add('icon-times-circle');
 		utils.currentPageDetail.classList.add('visible');
 		utils.buttonContainer.classList.add('invisible');
 		utils.currentPageDetail.firstChild.href = '#discover';
@@ -102,7 +108,7 @@ var router = (function(){
 		utils.rejectPage.classList.remove('active');
 		utils.settingsPage.classList.remove('active');
 		utils.buttonContainer.classList.add('invisible');
-		utils.lovePage.innerHTML = templates.list.render({list: list.love})
+		utils.lovePage.innerHTML = templates.list.render({list: list.love});
 	});
 
 	routes.add('reject', function(){
@@ -110,7 +116,7 @@ var router = (function(){
 		utils.settingsPage.classList.remove('active');
 		utils.lovePage.classList.remove('active');
 		utils.buttonContainer.classList.add('invisible');
-		utils.rejectPage.innerHTML = templates.list.render({list: list.reject})
+		utils.rejectPage.innerHTML = templates.list.render({list: list.reject});
 	});
 
 	routes.add('settings', function(){

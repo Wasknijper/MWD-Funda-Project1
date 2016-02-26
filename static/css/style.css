@@ -9,6 +9,18 @@ body {
 	box-sizing: border-box;
 }
 
+
+@font-face {
+	font-family: 'fontello';
+	src: url('./font/fontello.eot?33228201');
+	src: url('./font/fontello.eot?33228201#iefix') format('embedded-opentype'),
+	   url('./font/fontello.woff?33228201') format('woff'),
+	   url('./font/fontello.ttf?33228201') format('truetype'),
+	   url('./font/fontello.svg?33228201#fontello') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+     
 a {
 	color: white;
 	text-decoration: none;
@@ -25,8 +37,17 @@ header{
 
 header a {
     display: inline-block;
-    padding: 0.2em 0.6em;
+    padding: 0em 0.6em;
     font-size: 1.4em;
+    line-height: 2;
+}
+
+header a[href="#settings"]{
+    font-size: 1.6em;
+}
+
+header .icon-times {
+	font-size: 1.1em;
 }
 
 header #logo {
@@ -100,13 +121,20 @@ body > section {
     transition: 1s ease-in-out;
 }
 
-.object section {
+.object a section {
 	width: 100%;
     background-color: #F8B000;
     /* position: absolute; */
     position: relative;
     padding: 1em;
+    padding-bottom: 2em;
     bottom: 0;
+    -webkit-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+.object a[href='#discover'] section{
+	padding-bottom: 1em;
 }
 
 
@@ -120,15 +148,26 @@ body > section {
     left: 0;
     cursor: default;
     /* bottom: -85%; */
-    width: 30em;
+    width: 100%;
+    max-width: 30em;
     height: 100%;
     /* cursor: auto; */
 	border: 3px solid #6EC8E5;
 	border-left: 0;
-    margin-top: calc(100vh - 6.75em);
+    margin-top: calc(100vh - 7.75em);
     -webkit-transition: 1s ease-in-out;
     transition: 1s ease-in-out;
 
+}
+
+.object-detail .icon{
+    position: absolute;
+    right: 0.2em;
+    top: 50%;
+    transform: translateY(-36%);
+    font-size: 4em;
+    opacity: 0.8;
+    color: navajowhite;
 }
 
 .object-detail .info{
@@ -231,14 +270,16 @@ main section:first-of-type{
 	box-shadow: 0 0 0 2px rgba(255,255,0,0.5);
 }
 
-#love {
+#button_container #love {
+    line-height: 2.5em;
 	color: #F8B000;
 	float: right; 
-	font-size: 3em;
 	margin-right: 0;
 }
 
-#reject {
+#button_container #reject {
+    line-height: 2.05;
+    font-size: 3em;
 	color: #6EC8E5;
 }
 
@@ -318,6 +359,8 @@ main section:first-of-type{
 }
 
 .left:before, .right:before, .loading{
+	font-family: icon-font;
+	line-height: 1.35;
 	padding: 0;
 	margin: 0;
 	display: block;
@@ -327,11 +370,13 @@ main section:first-of-type{
 	width: 1.3em;
 	height: 1.3em;
 	font-size: 10em;
-	top: 40%;
-	left: 40%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	position: absolute;
 	animation: fadein 0.4s;
 	border-radius: 15%;
+	overflow: hidden;
 }
 
 .loading{
@@ -348,13 +393,14 @@ main section:first-of-type{
 }
 
 .left:before{
-	content:"\10060\xfe0e";
+	content:"\64";
 	color: #6EC8E5;
 }
 
 
 .right:before{
-	content: "\10084\xfe0e";
+    line-height: 1.5;
+  	content: "\63";
 	color: #F8B000;
 }
 
