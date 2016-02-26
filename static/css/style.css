@@ -338,9 +338,10 @@ section#settingsPage, #lovePage, #rejectPage {
 
 section#settingsPage {
 	bottom: initial;
-	height:10em;
+	height:auto;
 	top:-100%;
 	padding-top: 3.5em;
+	padding-bottom: 1em;
 }
 
 section#settingsPage.active{
