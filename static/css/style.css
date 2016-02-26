@@ -60,6 +60,10 @@ header a[href="#reset"]{
     line-height: 2.5em;
 }
 
+header a[href="#discover"]{
+	padding-left: 0;
+}
+
 header .icon-times {
 	font-size: 1.1em;
     line-height: 1.85;
