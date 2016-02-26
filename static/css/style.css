@@ -148,6 +148,7 @@ body > section {
     left: 0;
     cursor: default;
     /* bottom: -85%; */
+    -webkit-overflow-scrolling: touch;
     width: 100%;
     max-width: 30em;
     height: 100%;
@@ -286,6 +287,7 @@ main section:first-of-type{
 #settings, #lovePage, #rejectPage {
 	padding: 4.5em 1.5em;
 	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 	z-index: 100;
 	bottom: 100%;
 	background-color: #F8B000;
