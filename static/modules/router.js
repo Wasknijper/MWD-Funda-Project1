@@ -13,9 +13,12 @@ var router = (function(){
   		document.title = 'Home';
   		if(_firstLaunch === false){
 			
-			_icon = utils.currentPageDetail.childNodes[0].querySelector('.icon');
-			_icon.classList.remove('icon-times-circle');
-			_icon.classList.add('icon-info-circle');
+			if(utils.currentPageDetail){
+				_icon = utils.currentPageDetail.childNodes[0].querySelector('.icon');
+				_icon.classList.remove('icon-times-circle');
+				_icon.classList.add('icon-info-circle');
+			}
+
 			utils.lovePage.classList.remove('active');
 			utils.rejectPage.classList.remove('active');
 			utils.settingsPage.classList.remove('active');
@@ -123,6 +126,16 @@ var router = (function(){
 		utils.settingsPage.classList.add('active');
 		utils.rejectPage.classList.remove('active');
 		utils.lovePage.classList.remove('active');
+	});
+
+	routes.add('reset', function(){
+		var confrimMsg = confirm("Door te reseten wis je alle informatie, dus ook de opgeslage huizen.\n \n Weet je zeker dat je wilt reseten?");
+		if (confrimMsg === true) {
+		    localStorage.clear();
+		   window.location = '';
+		} else {
+		   window.location = '#discover';
+		}
 	});
 
 	return routes;

@@ -55,6 +55,11 @@ header a[href="#settings"]{
     line-height: 1.8;
 }
 
+header a[href="#reset"]{
+    font-size: 1.1em;
+    line-height: 2.5em;
+}
+
 header .icon-times {
 	font-size: 1.1em;
     line-height: 1.85;
@@ -356,9 +361,16 @@ section#settingsPage.active{
 }
 
 #lovePage [role="close"], #rejectPage [role="close"] {
-	text-align: right;
+    background-color: #F8B000;
+    border-radius: 0.2em;
+    text-align: right;
+    padding: 0.1em;
     font-size: 2em;
-	width: 100%;
+    right: 1em;
+    width: 1em;
+    height: 1em;
+    box-sizing: content-box;
+    position: fixed;
 }
 
 #settingsPage article, #lovePage article, #rejectPage article{
