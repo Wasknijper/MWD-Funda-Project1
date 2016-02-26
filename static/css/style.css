@@ -553,9 +553,14 @@ tr:not(:first-of-type) th{
 
 
 @media (max-width: 42em) {
+
+	header #logo{
+		margin-left: 0.2em;
+	}
+
 	#button_container{
 		display: flex;
-		bottom: 4em;
+		bottom: 5em;
 	}
 
 	#button_container button{
