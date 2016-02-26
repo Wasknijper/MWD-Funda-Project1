@@ -298,7 +298,7 @@ main section:first-of-type{
 }
 
 #settings input[type="number"]:before{
-	content:'€';
+	content:'€\FE0F';
 	display:inline;
 }
 
@@ -348,13 +348,13 @@ main section:first-of-type{
 }
 
 .left:before{
-	content:"❌";
+	content:"❌/FE0F";
 	color: #6EC8E5;
 }
 
 
 .right:before{
-	content: "❤";
+	content: "❤/FE0F";
 	color: #F8B000;
 }
 
