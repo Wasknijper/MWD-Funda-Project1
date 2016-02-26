@@ -555,6 +555,7 @@ tr:not(:first-of-type) th{
 @media (max-width: 42em) {
 	#button_container{
 		display: flex;
+		bottom: 4em;
 	}
 
 	#button_container button{
