@@ -348,13 +348,13 @@ main section:first-of-type{
 }
 
 .left:before{
-	content:"❌/FE0F";
+	content:"\x274c\xfe0e";
 	color: #6EC8E5;
 }
 
 
 .right:before{
-	content: "❤/FE0F";
+	content: "\10084\xfe0e";
 	color: #F8B000;
 }
 
