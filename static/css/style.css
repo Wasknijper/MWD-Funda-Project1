@@ -166,6 +166,7 @@ body > section {
 	z-index: 100;
 	opacity: 1;
 	filter: alpha(opacity=100);
+	tabindex: 0;
 }
 
 .object .object-detail{
@@ -183,8 +184,8 @@ body > section {
     margin-top: calc(100vh - 7.75em);
     -webkit-transition: 1s ease-in-out;
     transition: 1s ease-in-out;
-
 }
+
 
 .object-detail .icon{
     position: absolute;
