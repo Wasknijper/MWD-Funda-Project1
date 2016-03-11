@@ -31,6 +31,7 @@ Ik maak geen gebruik van cookies in dit project. Ik zou wel cookies kunnen gebru
 De app werkt ook zonder https.
 
 ##Javascript contentblokkers
+Niet kunnen testen
 
 ##localStorage
 De app slaat sommige data op in de local host, zoals de huidige huizen en de huizen die je hebt geliked of gereject. Als er geen localStorage is werkt de app nog wel, maar is de data weg als je de browser refresht. Ik kan hier voor een exporteer en importeer functie maken. De exporteer heeft dan een JSON string die de gebruiker zelf kan opslaan en later weer importeren om weer verder te kunnen.
