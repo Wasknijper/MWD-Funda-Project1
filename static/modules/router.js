@@ -15,8 +15,7 @@ var router = (function(){
 			
 			if(utils.currentPageDetail){
 				_icon = utils.currentPageDetail.childNodes[0].querySelector('.icon');
-				_icon.classList.remove('icon-times-circle');
-				_icon.classList.add('icon-info-circle');
+				_icon.firstChild.setAttribute('xlink:href', '#icon-info');
 			}
 
 			utils.lovePage.classList.remove('active');
@@ -91,8 +90,8 @@ var router = (function(){
 	});
 
 	routes.add('detail/:name', function (route) {
-		_icon.classList.remove('icon-info-circle');
-		_icon.classList.add('icon-times-circle');
+		console.log(_icon.firstChild.xlink);
+		_icon.firstChild.setAttribute('xlink:href', '#icon-cancel-circle');
 		utils.currentPageDetail.classList.add('visible');
 		utils.buttonContainer.classList.add('invisible');
 		utils.currentPageDetail.firstChild.href = '#discover';

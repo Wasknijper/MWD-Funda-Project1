@@ -29,6 +29,10 @@ a {
 	text-decoration: none;
 }
 
+a svg{
+	fill: white;
+}
+
 header{
 	background-color: #F8B000;
 	border-bottom: 3px solid #6EC8E5;
@@ -49,6 +53,12 @@ header a {
     /* line-height: 2; */
     width: min-content;
     /* float: right; */
+}
+
+header a svg {
+	fill: white;
+	width: 1em;
+	height: 1em;
 }
 
 header a[href="#settings"]{
@@ -189,15 +199,18 @@ body > section {
 
 .object-detail .icon{
     position: absolute;
-    right: 0.2em;
-    top: 50%;
+    right: 1em;
+    top: 37%;
     -webkit-transform: translateY(-36%);
         -ms-transform: translateY(-36%);
             transform: translateY(-36%);
-    font-size: 4em;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
+    opacity: 0.5;
+    filter: alpha(opacity=50);
     color: navajowhite;
+}
+
+.object-detail svg{
+	width: 4em;
 }
 
 .object-detail .info{
@@ -304,6 +317,18 @@ main section:first-of-type{
 	        transform-origin: center;
 }
 
+#loveBtn svg {
+    width: 1.5em;
+    height: 1.5em;
+    padding-top: 0.5em;
+}
+
+#rejectBtn svg {
+    padding-top: 0.15em;
+    width: 1.2em;
+    height: 1em;
+}
+
 #button_container button:hover{
 	-webkit-transform: scale(1.2);
 	    -ms-transform: scale(1.2);
@@ -317,15 +342,15 @@ main section:first-of-type{
 
 #button_container #loveBtn {
     line-height: 2.5em;
-	color: #F8B000;
 	float: right; 
 	margin-right: 0;
+	fill: #F8B000;	
 }
 
 #button_container #rejectBtn {
     line-height: 2.05;
     font-size: 3em;
-	color: #6EC8E5;
+	fill: #6EC8E5;
 }
 
 section#settingsPage, #lovePage, #rejectPage {
@@ -373,10 +398,13 @@ section#settingsPage.active{
     padding: 0.1em;
     font-size: 2em;
     right: 1em;
+    position: fixed;
+    fill: white;
+}
+
+[role="close"] svg{
     width: 1em;
     height: 1em;
-    box-sizing: content-box;
-    position: fixed;
 }
 
 #settingsPage article, #lovePage article, #rejectPage article{
@@ -446,10 +474,6 @@ section#settingsPage.active{
 	        animation: fadein 0.4s;
 	border-radius: 15%;
 	overflow: hidden;
-}
-
-.left:before, .right:before{
-	font-family: icon-font;
 }
 
 .loading{
